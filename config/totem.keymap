@@ -30,6 +30,22 @@
             mods = <(MOD_LALT|MOD_RALT)>;
             keep-mods = <(MOD_LALT|MOD_RALT)>;
         };
+        atab: atab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ATAB";
+            bindings = <&kp A>, <&kp TAB>;
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT|MOD_RALT)>;
+        };
+        tab_esc: tab_esc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TAB_ESC";
+            bindings = <&kp TAB>, <&kp ESCAPE>;
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+            keep-mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
 
     combos {
@@ -43,6 +59,21 @@
             timeout-ms = <100>;
             key-positions = <33 34>;
             bindings = <&mo FN>;
+        };
+        combo_fd_shift {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp LSHFT>;
+        };
+        combo_jk_shift {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&kp RSHFT>;
+        };
+        combo_er_tab {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&tab_esc>;
         };
     };
 
@@ -67,7 +98,7 @@
             bindings = <
         //             ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷
                         &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
-                        &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI
+                        &atab       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI
             &esc_tab    &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp SQT
                                                 &kp LGUI    &kp LALT    &kp LCTRL       &lt NUM RET &lt SYM SPACE &lt MEDIA BSPC
             >;
